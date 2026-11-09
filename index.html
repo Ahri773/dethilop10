@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Đề kiểm tra Tiếng Anh 10</title>
+<style>
+:root{--bg:#f6f7fb;--card:#fff;--tx:#1d2433;--mu:#6b7488;--bd:#dfe3ee;--pr:#3b5bdb;--prs:#e7ecff;--ok:#1f9d55;--oks:#e3f6ea;--no:#d6336c;--nos:#fde8ef;--wa:#e67700;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#11141c;--card:#1b2030;--tx:#e8ebf4;--mu:#9aa3b8;--bd:#2c3348;--pr:#7c97ff;--prs:#252d52;--ok:#4cd68a;--oks:#173626;--no:#ff7aa5;--nos:#3b1927;--wa:#ffa94d;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#11141c;--card:#1b2030;--tx:#e8ebf4;--mu:#9aa3b8;--bd:#2c3348;--pr:#7c97ff;--prs:#252d52;--ok:#4cd68a;--oks:#173626;--no:#ff7aa5;--nos:#3b1927;--wa:#ffa94d;color-scheme:dark}
+html{scroll-padding-top:calc(env(safe-area-inset-top,0px) + 70px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font:16px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);background:var(--card);z-index:11}
+header{position:sticky;top:env(safe-area-inset-top,0px);z-index:10;background:var(--card);border-bottom:1px solid var(--bd);padding:8px 12px}
+.bar{display:flex;align-items:center;gap:8px;max-width:760px;margin:auto}
+#tm{font-weight:700;font-size:20px;font-variant-numeric:tabular-nums;min-width:74px}
+#tm.low{color:var(--no)}
+#pg{flex:1;color:var(--mu);font-size:13px}
+button{font:inherit;cursor:pointer;border:1px solid var(--bd);background:var(--card);color:var(--tx);border-radius:10px;padding:8px 12px}
+button.p{background:var(--pr);border-color:var(--pr);color:#fff}
+#nv{display:none;max-width:760px;margin:8px auto 0;grid-template-columns:repeat(auto-fill,minmax(40px,1fr));gap:6px}
+#nv.on{display:grid}
+#nv button{padding:6px 0;font-size:14px}
+#nv .d{background:var(--prs);border-color:var(--pr)}
+#nv .ok{background:var(--oks);border-color:var(--ok)}
+#nv .no{background:var(--nos);border-color:var(--no)}
+main{max-width:760px;margin:auto;padding:12px}
+h2{font-size:17px;margin:22px 0 4px}
+.in{color:var(--mu);font-size:14px;font-style:italic;margin:0 0 10px}
+.ps{background:var(--card);border:1px solid var(--bd);border-left:4px solid var(--pr);border-radius:10px;padding:10px 14px;margin:0 0 12px;font-size:15px}
+.ps p{margin:0 0 8px}.ps p:last-child{margin:0}
+.q{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px;margin:0 0 12px}
+.q b{display:block;margin-bottom:8px}
+.o{display:flex;gap:10px;align-items:flex-start;width:100%;text-align:left;margin:6px 0;padding:10px 12px}
+.o i{font-style:normal;font-weight:700;min-width:20px;color:var(--pr)}
+.o.s{background:var(--prs);border-color:var(--pr)}
+.o.ok{background:var(--oks);border-color:var(--ok)}
+.o.no{background:var(--nos);border-color:var(--no)}
+.o:disabled{cursor:default;opacity:1;color:var(--tx)}
+.fin{text-align:center;margin:18px 0}
+#rs{display:none;background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:14px;margin:0 0 16px}
+#rs.on{display:block}
+.big{font-size:32px;font-weight:800}
+.st{margin:10px 0}
+.st div.r{display:flex;justify-content:space-between;font-size:14px}
+.tr{height:10px;background:var(--bd);border-radius:6px;overflow:hidden;margin:3px 0 8px}
+.tr span{display:block;height:100%;background:var(--no)}
+.tg{display:inline-block;font-size:12px;color:var(--mu);margin-left:6px;font-weight:400}
+</style>
+</head>
+<body>
+<header>
+<div class="bar"><div id="tm">60:00</div><div id="pg"></div><button id="bn">Danh sách câu</button><button class="p" id="bs">Nộp bài</button></div>
+<div id="nv"></div>
+</header>
+<main>
+<div id="rs"></div>
+<div id="qs"></div>
+<div class="fin"><button class="p" id="bs2">Nộp bài</button></div>
+</main>
+<script>
+const T={pr:"Phát âm",st:"Trọng âm",vo:"Từ vựng & cụm từ",te:"Thì động từ",vf:"Dạng động từ (to V / V-ing)",pa:"Câu bị động",cj:"Liên từ & mệnh đề quan hệ",co:"Giao tiếp",rm:"Đọc: ý chính / tiêu đề",rd:"Đọc: thông tin chi tiết",rw:"Đọc: từ vựng / quy chiếu",ri:"Đọc: suy luận",wr:"Viết lại câu",wc:"Kết hợp câu"};
+const S=[
+{h:"Phần I. Phát âm và trọng âm",i:"Chọn từ có phần gạch chân phát âm khác (câu 1–2) hoặc trọng âm chính khác (câu 3–4).",q:[
+["Từ có phần gạch chân phát âm khác:","wash<u>ed</u>|watch<u>ed</u>|need<u>ed</u>|help<u>ed</u>",2,"pr"],
+["Từ có phần gạch chân phát âm khác:","<u>ch</u>emistry|<u>ch</u>aracter|<u>ch</u>orus|<u>ch</u>allenge",3,"pr"],
+["Từ có trọng âm chính khác:","volunteer|benefit|positive|character",0,"st"],
+["Từ có trọng âm chính khác:","household|improve|reduce|suggest",0,"st"]]},
+{h:"Phần II. Từ vựng, ngữ pháp và giao tiếp",i:"Chọn đáp án đúng.",q:[
+["In my family, everyone shares the housework, so no one has to carry the whole ______ alone.","benefit|decision|burden|habit",2,"vo"],
+["Look at those dark clouds! It ______ soon, so we should bring the washing inside.","rains|is going to rain|has rained|is raining",1,"te"],
+["While the volunteers ______ food, a local journalist arrived to interview them.","prepare|have prepared|prepared|were preparing",3,"te"],
+["The school encourages students ______ reusable bottles instead of buying plastic ones.","to bring|bringing|bring|brought",0,"vf"],
+["The old computers ______ before they are sent to children in remote areas.","must check|must have checked|must be checked|must be checking",2,"pa"],
+["Although Mai was nervous before her performance, she managed to make a strong ______ on the judges.","impression|influence|expression|appearance",0,"vo"],
+["My brother usually cooks dinner, but this week I ______ the cooking because he is preparing for an exam.","do|am doing|have done|did",1,"te"],
+["The campaign was delayed ______ the organisers had not received permission to use the park.","although|but|so|because",3,"cj"],
+["The students decided to ______ a survey to find out how much paper their school used.","carry out|give up|turn down|look after",0,"vo"],
+["We were surprised ______ that a small change in our daily habits could save so much energy.","learn|learning|to learn|learned",2,"vf"],
+["Lan: “Would you mind showing me how to use this learning app?”<br>Minh: “______”","Yes, I would love an app.|Not at all. Let me show you.|No, I haven’t used it yet.|That’s why I downloaded it.",1,"co"],
+["Nam: “I think our class should organise a book exchange.”<br>Hoa: “______. It would give old books a new life.”","I’m afraid I can’t make it|You’re welcome|That’s not the point|I couldn’t agree more",3,"co"]]},
+{h:"Phần III. Cloze test",i:"Chọn từ/cụm từ phù hợp nhất cho mỗi chỗ trống.",p:["Last month, students at Green Hill High School started a repair club. Instead of throwing away broken lamps, bags and small household items, they bring them to the club and learn how to fix them. The project aims to reduce waste and help students develop useful (1) ______.","At first, some members worried that they did not know enough about repairing things. (2) ______, a local technician offered to teach them the basics. Students now work in small groups, (3) ______ allows them to share ideas and learn from one another.","The club has also encouraged families to think more carefully before buying new products. Its members hope that their project will have a lasting (4) ______ on the community. They are planning an open day next month so that more people can take (5) ______ in their activities."],q:[
+["Chỗ trống (1)","skills|machines|subjects|choices",0,"vo"],
+["Chỗ trống (2)","Otherwise|Therefore|However|Besides",2,"cj"],
+["Chỗ trống (3)","whom|which|who|whose",1,"cj"],
+["Chỗ trống (4)","purpose|effort|exchange|effect",3,"vo"],
+["Chỗ trống (5)","part|place|care|advantage",0,"vo"]]},
+{h:"Phần IV. Đọc hiểu",i:"Bài đọc 1",p:["Many teenagers want to contribute to their communities but believe that volunteering requires a large amount of free time. In fact, a small, regular commitment can be just as meaningful. At Riverside Secondary School, a group of students spends forty minutes every Friday reading with younger children at a nearby community centre.","The programme began when a teacher noticed that some children had limited access to books at home. Rather than simply collecting books, the students decided to create a space where children could enjoy stories with others. Each volunteer reads with the same child for several weeks, allowing both of them to become more comfortable.","At first, the volunteers expected to be the teachers. Over time, however, they discovered that listening was just as important as explaining. Some children preferred to discuss the pictures before reading the words, while others wanted to act out a scene. By adapting their approach, the students learned to be more patient and flexible.","The programme has not solved every problem faced by the community centre. Nevertheless, staff members say that more children now choose to visit the reading room. The volunteers, meanwhile, have learned that making a difference does not always require a grand plan; sometimes it begins with showing up consistently."],q:[
+["What is the passage mainly about?","How students created a regular reading programme for children|Why teenagers should spend all their free time volunteering|How a school collected money to build a community centre|Why children prefer acting to reading books",0,"rm"],
+["Why did the teacher suggest a need for the programme?","The community centre had no volunteers.|Some children had few books available at home.|Students needed a quiet place to study.|Parents asked the school to provide acting lessons.",1,"rd"],
+["The word “them” in paragraph 2 refers to ______.","books and stories|teachers and parents|volunteers and children|schools and centres",2,"rw"],
+["According to paragraph 3, the volunteers learned that ______.","every child should follow the same reading method|explaining every new word was the only effective method|children learned best when they read without pictures|responding to children’s different preferences was valuable",3,"rd"],
+["Which of the following can be inferred from the last paragraph?","The programme’s regular activities have had a positive effect.|The community centre no longer needs any other support.|The volunteers plan to replace the centre’s staff.|Most children stopped visiting the reading room.",0,"ri"]]},
+{h:"",i:"Bài đọc 2",p:["Digital tools have made learning more convenient. A student can watch a science lesson, practise pronunciation or check the meaning of a new word on a phone. However, having access to information is not the same as understanding it. To learn effectively, students need to make active choices about how they use these tools.","One common habit is to watch a video several times without stopping. This may create a sense of familiarity, but familiarity can be mistaken for knowledge. A more effective approach is to pause the video, summarise the main idea and try to explain it without looking at the screen. If students cannot do this, they can return to the part they have not understood.","Digital tools can also be distracting. Notifications and unrelated links compete for attention, making it difficult to concentrate on a single task. Some students therefore turn off notifications and set a specific goal before opening an app. For example, instead of planning to “study English online”, they might decide to learn eight words and use each one in a sentence.","None of this means that technology should replace teachers or classmates. Discussion and feedback remain essential, especially when learners need to test an idea or correct a misunderstanding. The most useful digital tool is not necessarily the newest one, but the one that supports a clear learning purpose."],q:[
+["What is the best title for the passage?","The Disappearance of Classroom Learning|Choosing Better Ways to Learn with Technology|The History of Educational Videos|Learning Every Subject without a Teacher",1,"rm"],
+["The word “familiarity” in paragraph 2 is closest in meaning to ______.","a feeling of being used to something|an ability to explain something in detail|a plan to avoid something difficult|an opportunity to discover something new",0,"rw"],
+["What does the writer suggest students do while watching a lesson?","Watch it repeatedly without taking a break.|Read every comment before continuing.|Pause and explain the main idea in their own words.|Skip any part they find difficult.",2,"rd"],
+["According to the passage, setting a specific goal before opening an app can help students ______.","find more unrelated links|avoid asking for feedback|replace all classroom activities|focus on a learning task",3,"rd"],
+["Which statement would the writer most likely agree with?","The newest app is always the most effective one.|Technology works best when it serves a clear purpose.|Students should avoid using phones for learning.|Online information removes the need for discussion.",1,"ri"]]},
+{h:"Phần V. Viết",i:"Chọn câu gần nghĩa nhất với câu gốc (câu 1–3) hoặc câu kết hợp tốt nhất (câu 4–5).",q:[
+["The last time I visited my grandparents was three weeks ago.","I have visited my grandparents for three weeks.|I didn’t visit my grandparents three weeks ago.|I haven’t visited my grandparents for three weeks.|I have never visited my grandparents before.",2,"wr"],
+["People will plant more trees along this road next month.","More trees are planting along this road next month.|More trees will be planted along this road next month.|More trees will plant along this road next month.|More trees have been planted along this road next month.",1,"pa"],
+["“Why don’t we organise a clean-up day?” Linh said.","Linh refused to organise a clean-up day.|Linh asked why the clean-up day was cancelled.|Linh promised that she would clean up every day.|Linh suggested organising a clean-up day.",3,"wr"],
+["The weather was bad. The students continued their outdoor activity.","Although the weather was bad, the students continued their outdoor activity.|Because the weather was bad, the students cancelled their outdoor activity.|The weather was bad, so the students stopped their outdoor activity.|The students continued their outdoor activity because of the good weather.",0,"wc"],
+["My sister wanted to save electricity. She turned off the lights before leaving the room.","My sister turned off the lights, but she wanted to save electricity.|My sister turned off the lights to save electricity before leaving the room.|My sister left the room without turning off the lights to save electricity.|My sister wanted to save electricity, so she left the lights on.",1,"wc"]]}
+];
+const $=id=>document.getElementById(id),L="ABCD",Q=[],A=[];let done=false,end=Date.now()+3600000,tick;
+let n=0,html="",nv="";
+S.forEach(s=>{
+if(s.h)html+=`<h2>${s.h}</h2>`;
+html+=`<p class="in">${s.i}</p>`;
+if(s.p)html+=`<div class="ps">${s.p.map(x=>`<p>${x}</p>`).join("")}</div>`;
+s.q.forEach(q=>{
+const k=n++;Q.push(q);A.push(-1);
+html+=`<div class="q" id="q${k}"><b>Câu ${k+1}. ${q[0]}</b>${q[1].split("|").map((o,j)=>`<button class="o" data-q="${k}" data-o="${j}"><i>${L[j]}.</i><span>${o}</span></button>`).join("")}</div>`;
+nv+=`<button data-n="${k}" id="n${k}">${k+1}</button>`;
+});
+});
+$("qs").innerHTML=html;$("nv").innerHTML=nv;
+const N=Q.length;
+function prog(){$("pg").textContent=`Đã làm ${A.filter(x=>x>=0).length}/${N}`}
+prog();
+document.addEventListener("click",e=>{
+const o=e.target.closest(".o");
+if(o&&!done){const k=+o.dataset.q,j=+o.dataset.o;A[k]=j;
+document.querySelectorAll(`[data-q="${k}"]`).forEach(b=>b.classList.toggle("s",+b.dataset.o===j));
+$("n"+k).classList.add("d");prog();return}
+const c=e.target.closest("#nv button");
+if(c){$("q"+c.dataset.n).scrollIntoView({behavior:"smooth",block:"start"});$("nv").classList.remove("on")}
+});
+$("bn").onclick=()=>$("nv").classList.toggle("on");
+function fmt(s){return String(Math.floor(s/60)).padStart(2,"0")+":"+String(s%60).padStart(2,"0")}
+function upd(){const r=Math.max(0,Math.round((end-Date.now())/1000));$("tm").textContent=fmt(r);$("tm").classList.toggle("low",r<=300);if(r<=0&&!done)submit(true)}
+tick=setInterval(upd,500);upd();
+function submit(auto){
+if(done)return;
+const left=A.filter(x=>x<0).length;
+if(!auto&&!confirm(left?`Bạn còn ${left} câu chưa làm. Nộp bài ngay?`:"Nộp bài ngay?"))return;
+done=true;clearInterval(tick);
+const used=Math.min(3600,Math.round(3600-(end-Date.now())/1000));
+let ok=0;const ty={};
+Q.forEach((q,k)=>{
+const t=ty[q[3]]=ty[q[3]]||{n:0,w:0};t.n++;
+const right=A[k]===q[2];if(right)ok++;else t.w++;
+document.querySelectorAll(`[data-q="${k}"]`).forEach(b=>{
+const j=+b.dataset.o;b.disabled=true;b.classList.remove("s");
+if(j===q[2])b.classList.add("ok");else if(j===A[k])b.classList.add("no");
+});
+const nb=$("n"+k);nb.className=right?"ok":"no";
+if(!right){const b=document.querySelector(`#q${k} b`);b.insertAdjacentHTML("beforeend",`<span class="tg">${A[k]<0?"Chưa làm":"Sai"} · ${T[q[3]]}</span>`)}
+});
+const rows=Object.entries(ty).filter(([,v])=>v.w>0).sort((a,b)=>b[1].w/b[1].n-a[1].w/a[1].n||b[1].w-a[1].w);
+let r=`<div class="big">${ok}/${N} câu đúng</div><div>Điểm: <b>${(ok*10/N).toFixed(2)}</b>/10 · Thời gian làm: ${fmt(used)}${auto?" (hết giờ)":""}</div><h2 style="margin-top:16px">Thống kê dạng câu sai</h2>`;
+if(!rows.length)r+="<p>Bạn không sai câu nào. Rất tốt!</p>";
+else{r+=`<p>Dạng sai nhiều nhất: <b>${T[rows[0][0]]}</b> (${rows[0][1].w}/${rows[0][1].n} câu).</p><div class="st">`+
+rows.map(([k,v])=>`<div class="r"><span>${T[k]}</span><span>${v.w}/${v.n} sai</span></div><div class="tr"><span style="width:${Math.round(v.w/v.n*100)}%"></span></div>`).join("")+`</div>`;
+const ok0=Object.entries(ty).filter(([,v])=>!v.w).map(([k])=>T[k]);
+if(ok0.length)r+=`<p style="color:var(--mu);font-size:14px">Dạng làm đúng hết: ${ok0.join(", ")}.</p>`}
+r+=`<p style="color:var(--mu);font-size:14px">Cuộn xuống để xem từng câu: xanh = đáp án đúng, đỏ = bạn chọn sai.</p><button class="p" onclick="location.reload()">Làm lại</button>`;
+$("rs").innerHTML=r;$("rs").classList.add("on");
+$("bs").style.display=$("bs2").style.display="none";$("tm").classList.remove("low");
+scrollTo({top:0,behavior:"smooth"});
+}
+$("bs").onclick=$("bs2").onclick=()=>submit(false);
+</script>
+</body>
+</html>
